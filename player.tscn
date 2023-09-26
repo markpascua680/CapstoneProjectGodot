@@ -56,7 +56,7 @@ frame_progress = 0.514387
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_245lx")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(10, 10)
 
 [node name="CuttableTree" type="Sprite2D" parent="."]

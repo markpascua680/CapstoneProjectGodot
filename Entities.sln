@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gotta Catch em all", "Gotta Catch em all.csproj", "{335AA08D-D095-4DC7-984C-FEC7A8393E90}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities.csproj", "{335AA08D-D095-4DC7-984C-FEC7A8393E90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://bkqmxtqwph6h4"]
+
+[ext_resource type="Texture2D" uid="uid://dvgjb6kqajqhb" path="res://Assets/Pokemon-Tutorial-Art-Assets-master/Art/gfx/character.png" id="1_cq6e4"]
+[ext_resource type="Script" path="res://playerMovement.cs" id="1_h624f"]
+[ext_resource type="Texture2D" uid="uid://wkt0x74nk4jh" path="res://Assets/Pokemon-Tutorial-Art-Assets-master/Art/gfx/cuttable tree.png" id="4_a2s2a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_autuq"]
+atlas = ExtResource("1_cq6e4")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l856e"]
+atlas = ExtResource("1_cq6e4")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jfxu"]
+atlas = ExtResource("1_cq6e4")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juusy"]
+atlas = ExtResource("1_cq6e4")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_15y2a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_autuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l856e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jfxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juusy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_245lx"]
+size = Vector2(20, 21)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_h624f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_15y2a")
+frame_progress = 0.514387
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_245lx")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(10, 10)
+
+[node name="CuttableTree" type="Sprite2D" parent="."]
+position = Vector2(-33, -7)
+texture = ExtResource("4_a2s2a")

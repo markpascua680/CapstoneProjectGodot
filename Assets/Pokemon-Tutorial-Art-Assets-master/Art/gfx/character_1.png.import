@@ -1,0 +1,26 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://c00xdp0axt8sb"
+path="res://.godot/imported/character_1.png-64d7715f7d14e40c38da1a0a4d9b857e.ctexarray"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Assets/Pokemon-Tutorial-Art-Assets-master/Art/gfx/character_1.png"
+dest_files=["res://.godot/imported/character_1.png-64d7715f7d14e40c38da1a0a4d9b857e.ctexarray"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=4
+slices/vertical=4

@@ -1,9 +1,8 @@
-using Model.Pokemon.Type;
-using Model.Pokemon.Stats;
+using Model.Entity;
 
-namespace Model.Pokemon
+namespace Model.Entity.Entity
 {
-    public class Pokemon 
+    public class Entity 
     {
         public const int Id { get; }
 
@@ -20,5 +19,7 @@ namespace Model.Pokemon
         public int XPNeededToLevelUp { get; set; }
 
         public int CatchChance { get; set; }
+
+        public List<Equipment>? Equipment { get; set; }
     }
 }

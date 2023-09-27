@@ -1,4 +1,4 @@
-namespace Model.Pokemon.Type
+namespace Model.Entity.Type
 {
     public enum Type
     {

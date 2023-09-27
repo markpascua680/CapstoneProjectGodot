@@ -1,4 +1,4 @@
-namespace Model.Pokemon.Stats
+namespace Model.Entity.Stats
 {
     public class Stats
     {

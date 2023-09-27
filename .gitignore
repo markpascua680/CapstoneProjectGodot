@@ -15,4 +15,7 @@ data_*/
 mono_crash.*.json
 
 # Added ignores
+*.v1
 *.v2
+*.suo
+*.lock

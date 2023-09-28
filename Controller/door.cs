@@ -2,7 +2,7 @@ using Godot;
 using Model;
 using System;
 
-public partial class door : Area2D
+public partial class Door : Area2D
 {
 
 	[Export(PropertyHint.File, "*.tscn,")]

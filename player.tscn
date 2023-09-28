@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://qa3h6dgrv3ex"]
 
-[ext_resource type="Script" path="res://Controller/Player/playerMovement.cs" id="1_p1630"]
+[ext_resource type="Script" path="res://Controller/Player/PlayerMovement.cs" id="1_gthjo"]
 [ext_resource type="Texture2D" uid="uid://dfwc07f7wvv8e" path="res://View/Characters/Player/Small-8-Direction-Characters_by_AxulArt.png" id="2_d2imq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwmp6"]
@@ -283,7 +283,8 @@ y_sort_enabled = true
 
 [node name="PlayerBody2D" type="CharacterBody2D" parent="."]
 y_sort_enabled = true
-script = ExtResource("1_p1630")
+script = ExtResource("1_gthjo")
+metadata/player = "PLAYER"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerBody2D"]
 sprite_frames = SubResource("SpriteFrames_15y2a")

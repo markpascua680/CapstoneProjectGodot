@@ -1,14 +1,14 @@
 using Godot;
 using Model.GlobalVariables;
 
-public partial class playerMovement : CharacterBody2D
+public partial class PlayerMovement : CharacterBody2D
 {
 	[Signal]
 	public delegate void  DoorEnteredEventHandler();
 	
-	private Vector2 inputDirection;
+	private Vector2 InputDirection;
 	
-	private AnimatedSprite2D animation;
+	private AnimatedSprite2D Animation;
 
 	// Ray casts
 	private RayCast2D DoorRay;
@@ -20,9 +20,9 @@ public partial class playerMovement : CharacterBody2D
 
 	public override void _Ready()
 	{	
-		animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		Animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		DoorRay = GetNode<RayCast2D>("DoorRayCast2D");
-
+		
 		if (GlobalVariables.PlayerGlobalPosition != Vector2.Zero)
 			{
 				GlobalPosition = GlobalVariables.PlayerGlobalPosition;
@@ -30,13 +30,13 @@ public partial class playerMovement : CharacterBody2D
 
 		if (GlobalVariables.PlayerDirection != null)
 		{
-			animation.Play(GlobalVariables.PlayerDirection);
+			Animation.Play(GlobalVariables.PlayerDirection);
 		}
 	}
 	public void GetInput()
 	{
-		inputDirection = Input.GetVector("left", "right", "up", "down");
-		Velocity = inputDirection * Speed;
+		InputDirection = Input.GetVector("left", "right", "up", "down");
+		Velocity = InputDirection * Speed;
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -45,13 +45,14 @@ public partial class playerMovement : CharacterBody2D
 		MoveAndSlide();
 		PlayAnimation();
 
-		DoorRay.TargetPosition = inputDirection * 8;
+		DoorRay.TargetPosition = InputDirection * 8;
 		DoorRay.ForceRaycastUpdate();
 
 		if (DoorRay.IsColliding())
 		{
 			EmitSignal(SignalName.DoorEntered, DoorRay.GetCollider().Get("Rid"));
 		}
+		
 	}
 
 	private void PlayAnimation()
@@ -110,7 +111,7 @@ public partial class playerMovement : CharacterBody2D
 			PlayerDirection = "IdleRight";
 		}
 
-		animation.Play(PlayerDirection);
+		Animation.Play(PlayerDirection);
 		GlobalVariables.PlayerDirection = PlayerDirection;
 	}
 }

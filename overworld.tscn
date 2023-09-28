@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bb3fu25u44i7p"]
+[gd_scene load_steps=25 format=3 uid="uid://bb3fu25u44i7p"]
 
 [ext_resource type="Texture2D" uid="uid://cmx1tp0f7nv5n" path="res://View/Ground/Grass.png" id="2_q2bww"]
 [ext_resource type="Texture2D" uid="uid://r1spbyh4h1nb" path="res://View/Nature/Wheatfield.png" id="3_0eput"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Watermill.cs" id="7_8ckdb"]
 [ext_resource type="Texture2D" uid="uid://bqf8g7tse8yqc" path="res://View/Buildings/Cyan/CyanResources.png" id="7_vyqth"]
 [ext_resource type="Texture2D" uid="uid://b2irksvrd2edu" path="res://View/Ground/TexturedGrass.png" id="8_at48u"]
+[ext_resource type="PackedScene" uid="uid://becq045sv3v8c" path="res://NPCs.tscn" id="12_alwnd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wycm0"]
 texture = ExtResource("8_at48u")
@@ -621,3 +622,12 @@ position = Vector2(392, 224)
 scale = Vector2(3, 3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Nature"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="NPCs" parent="Node2D" instance=ExtResource("12_alwnd")]
+position = Vector2(64, 113)
+metadata/npcid = "littleDude"
+
+[node name="NPCs2" parent="Node2D" instance=ExtResource("12_alwnd")]
+metadata/npcid = "defaultTestEnemy"

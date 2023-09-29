@@ -19,3 +19,4 @@ mono_crash.*.json
 *.v2
 *.suo
 *.lock
+*.vs/

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bb3fu25u44i7p"]
+[gd_scene load_steps=11 format=3 uid="uid://bb3fu25u44i7p"]
 
 [ext_resource type="Texture2D" uid="uid://dvgjb6kqajqhb" path="res://Assets/Pokemon-Tutorial-Art-Assets-master/Art/gfx/character.png" id="1_cq6e4"]
-[ext_resource type="Script" path="res://playerMovement.cs" id="1_h624f"]
+[ext_resource type="Script" path="res://Controller/Player/playerMovement.cs" id="1_p1630"]
+[ext_resource type="Script" path="res://Controller/Player/PlayerBody2D.cs" id="3_wrolr"]
 [ext_resource type="Texture2D" uid="uid://wkt0x74nk4jh" path="res://Assets/Pokemon-Tutorial-Art-Assets-master/Art/gfx/cuttable tree.png" id="4_a2s2a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_autuq"]
@@ -45,18 +46,18 @@ size = Vector2(20, 21)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_h624f")
+[node name="PlayerBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_p1630")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerBody2D"]
 sprite_frames = SubResource("SpriteFrames_15y2a")
-frame_progress = 0.514387
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody2D"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_245lx")
+script = ExtResource("3_wrolr")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="PlayerBody2D"]
 zoom = Vector2(10, 10)
 
 [node name="CuttableTree" type="Sprite2D" parent="."]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Controller/Player/playerMovement.cs" id="1_p1630"]
 [ext_resource type="Texture2D" uid="uid://dfwc07f7wvv8e" path="res://View/Characters/Player/Small-8-Direction-Characters_by_AxulArt.png" id="2_d2imq"]
 [ext_resource type="Texture2D" uid="uid://wkt0x74nk4jh" path="res://Assets/Pokemon-Tutorial-Art-Assets-master/Art/gfx/cuttable tree.png" id="4_a2s2a"]
+[ext_resource type="Script" path="res://Enemy.cs" id="4_i6udo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwmp6"]
 atlas = ExtResource("2_d2imq")
@@ -297,3 +298,4 @@ zoom = Vector2(10, 10)
 [node name="CuttableTree" type="Sprite2D" parent="."]
 position = Vector2(-33, -7)
 texture = ExtResource("4_a2s2a")
+script = ExtResource("4_i6udo")

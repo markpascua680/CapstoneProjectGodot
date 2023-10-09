@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://b51fl3d0t3f6f"]
+
+[ext_resource type="Texture2D" uid="uid://ck02eyjodv8ef" path="res://Assets/Pokemon-Tutorial-Art-Assets-master/Art/Pokemons/Back/1.png" id="1_bm515"]
+[ext_resource type="Script" path="res://Controller/Scenes/node_2d.cs" id="1_muya2"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_muya2")
+
+[node name="playerEntity" type="Sprite2D" parent="."]
+position = Vector2(32, 63)
+texture = ExtResource("1_bm515")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="playerEntity"]
+offset_left = -32.0
+offset_top = 26.0
+offset_right = 198.0
+offset_bottom = 66.0
+text = "This is some Test Text"
+
+[node name="enemyEntity" type="Sprite2D" parent="."]
+position = Vector2(188, 65)
+texture = ExtResource("1_bm515")
+flip_h = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="enemyEntity"]
+offset_left = -180.0
+offset_top = -53.0
+offset_right = -106.0
+offset_bottom = -28.0
+text = "This is some Test Text"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(115, 65)
+zoom = Vector2(5, 5)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 142.0
+offset_top = 10.0
+offset_right = 219.0
+offset_bottom = 39.0
+text = "This is some Test Text"

@@ -10,9 +10,15 @@ public partial class playerMovement : CharacterBody2D
 	private float topSpeed = 0.5f; //boots = 0.025 
 	private float sprintSpeed = 0.75f;
 	private float movementTime = 0.0f;
+	private AnimatedSprite2D animation;
+
 	[Export]
 	public int Speed { get; set; } = 100;
 
+	public override void _Ready()
+	{
+		animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+	}
 	public void GetInput()
 	{
 		Vector2 inputDirection = Input.GetVector("left", "right", "up", "down");
@@ -23,5 +29,26 @@ public partial class playerMovement : CharacterBody2D
 	{
 		GetInput();
 		MoveAndSlide();
+		
+		if (Input.IsActionPressed("up"))
+		{
+			animation.Play("WalkUp");
+		}
+		else if (Input.IsActionPressed("down"))
+		{
+			animation.Play("WalkDown");
+		}
+		else if (Input.IsActionPressed("left"))
+		{
+			animation.Play("WalkLeft");
+		}
+		else if (Input.IsActionPressed("right"))
+		{
+			animation.Play("WalkRight");
+		}
+		else
+		{
+			animation.Stop();
+		}
 	}
 }

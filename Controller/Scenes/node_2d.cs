@@ -15,13 +15,11 @@ public partial class node_2d : Node2D
 		var fileLocation = "res://Model/Characters/trainerConstant.json";
 		var file = Godot.FileAccess.Open(fileLocation, Godot.FileAccess.ModeFlags.Read);
 		var tmp = Json.ParseString(file.GetAsText());
-		GD.Print(tmp.AsGodotDictionary());
+		GD.Print(tmp.AsString()[0]);
 		//var dict = Json.ParseString(tmp).AsGodotDictionary<string, Dictionary>();
 		//GD.Print(dict["trainerInfo"]["defaultTestEnemy"].GetType());
 
 		var statSheetDict = Json.ParseString(file.GetAsText());
-
-
 		
 		//GD.Print(statSheetDict.AsGodotDictionary<string, Variant.>);
 		//GD.Print(statSheetDict["trainerInfo"]);

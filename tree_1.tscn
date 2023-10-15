@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b41hqsfsj6ssv"]
+
+[ext_resource type="Texture2D" uid="uid://cv3pcfuurefp5" path="res://View/Nature/Trees.png" id="1_yueqk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wck2"]
+atlas = ExtResource("1_yueqk")
+region = Rect2(16, 0, 14, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ng5c"]
+size = Vector2(10, 5)
+
+[node name="Tree1" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = SubResource("AtlasTexture_1wck2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_0ng5c")

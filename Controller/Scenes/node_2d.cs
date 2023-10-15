@@ -1,6 +1,6 @@
 using Godot;
 using System;
-
+using Model.Characters;
 public partial class node_2d : Node2D
 {
 	// Called when the node enters the scene tree for the first time.

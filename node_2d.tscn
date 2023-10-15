@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b51fl3d0t3f6f"]
+[gd_scene load_steps=3 format=3 uid="uid://baejlmdfqsuvh"]
 
 [ext_resource type="Texture2D" uid="uid://ck02eyjodv8ef" path="res://Assets/Pokemon-Tutorial-Art-Assets-master/Art/Pokemons/Back/1.png" id="1_bm515"]
 [ext_resource type="Script" path="res://Controller/Scenes/node_2d.cs" id="1_muya2"]

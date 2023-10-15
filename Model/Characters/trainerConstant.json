@@ -1,24 +1,24 @@
 {
-    "trainerInfo":{
-        "defaultTestEnemy":{
-                "name":"None",
-                "consumables":[0,1,2,3],
-                "entityTeam":
-                    {
-                        "entity1Info":{
-                                "spriteID":0,
-                                "lvl":5,
-                                "moveSet":[0,1,2,3],
-                                "equipment":{}
-                            },
-                        "entity2Info":{
-                                "spriteID":0,
-                                "lvl":5,
-                                "moveSet":[0,1,2,3],
-                                "equipment":{}
-                            }
-                        }
-        }
-    }
+	"trainerInfo":{
+		"defaultTestEnemy":{
+				"name":"None",
+				"consumables":[0,1,2,3],
+				"entityTeam":
+					{
+						"entity1Info":{
+								"spriteID":0,
+								"lvl":5,
+								"moveSet":[0,1,2,3],
+								"equipment":{}
+							},
+						"entity2Info":{
+								"spriteID":0,
+								"lvl":5,
+								"moveSet":[0,1,2,3],
+								"equipment":{}
+							}
+						}
+		}
+	}
 }
 

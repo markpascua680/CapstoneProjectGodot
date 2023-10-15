@@ -1,8 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://bb3fu25u44i7p"]
+[gd_scene load_steps=32 format=3 uid="uid://bb3fu25u44i7p"]
 
 [ext_resource type="Script" path="res://Controller/Player/playerMovement.cs" id="1_p1630"]
 [ext_resource type="Texture2D" uid="uid://dfwc07f7wvv8e" path="res://View/Characters/Player/Small-8-Direction-Characters_by_AxulArt.png" id="2_d2imq"]
-[ext_resource type="Texture2D" uid="uid://wkt0x74nk4jh" path="res://Assets/Pokemon-Tutorial-Art-Assets-master/Art/gfx/cuttable tree.png" id="4_a2s2a"]
 [ext_resource type="Script" path="res://Enemy.cs" id="4_i6udo"]
 [ext_resource type="Texture2D" uid="uid://ck02eyjodv8ef" path="res://Assets/Pokemon-Tutorial-Art-Assets-master/Art/Pokemons/Back/1.png" id="4_kg3ra"]
 

@@ -32,23 +32,56 @@ public partial class playerMovement : CharacterBody2D
 		
 		if (Input.IsActionPressed("up"))
 		{
-			animation.Play("WalkUp");
+			if (Input.IsActionPressed("left"))
+				animation.Play("WalkUpLeft");
+			else if (Input.IsActionPressed("right"))
+				animation.Play("WalkUpRight");
+			else
+				animation.Play("WalkUp");
 		}
 		else if (Input.IsActionPressed("down"))
 		{
-			animation.Play("WalkDown");
+			if (Input.IsActionPressed("left"))
+				animation.Play("WalkDownLeft");
+			else if (Input.IsActionPressed("right"))
+				animation.Play("WalkDownRight");
+			else
+				animation.Play("WalkDown");
 		}
 		else if (Input.IsActionPressed("left"))
 		{
-			animation.Play("WalkLeft");
+			if (Input.IsActionPressed("up"))
+				animation.Play("WalkUpLeft");
+			else if (Input.IsActionPressed("down"))
+				animation.Play("WalkDownLeft");
+			else
+				animation.Play("WalkLeft");
 		}
 		else if (Input.IsActionPressed("right"))
 		{
-			animation.Play("WalkRight");
+			if (Input.IsActionPressed("up"))
+				animation.Play("WalkUpRight");
+			else if (Input.IsActionPressed("down"))
+				animation.Play("WalkDownRight");
+			else
+				animation.Play("WalkRight");
 		}
-		else
+		
+		if (Input.IsActionJustReleased("up"))
 		{
-			animation.Stop();
+			animation.Play("IdleUp");
+		}
+		else if (Input.IsActionJustReleased("down"))
+		{
+			animation.Play("IdleDown");
+		}
+		else if (Input.IsActionJustReleased("left"))
+		{
+			animation.Play("IdleLeft");
+		}
+		else if (Input.IsActionJustReleased("right"))
+		{
+			animation.Play("IdleRight");
 		}
 	}
 }

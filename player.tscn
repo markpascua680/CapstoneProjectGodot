@@ -1,8 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://bb3fu25u44i7p"]
+[gd_scene load_steps=30 format=3 uid="uid://qa3h6dgrv3ex"]
 
 [ext_resource type="Script" path="res://Controller/Player/playerMovement.cs" id="1_p1630"]
 [ext_resource type="Texture2D" uid="uid://dfwc07f7wvv8e" path="res://View/Characters/Player/Small-8-Direction-Characters_by_AxulArt.png" id="2_d2imq"]
-[ext_resource type="Texture2D" uid="uid://wkt0x74nk4jh" path="res://Assets/Pokemon-Tutorial-Art-Assets-master/Art/gfx/cuttable tree.png" id="4_a2s2a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwmp6"]
 atlas = ExtResource("2_d2imq")
@@ -275,25 +274,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_245lx"]
-size = Vector2(20, 21)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ttmfl"]
+radius = 6.0
+height = 16.0
 
-[node name="Node2D" type="Node2D"]
+[node name="Player" type="Node2D"]
 
 [node name="PlayerBody2D" type="CharacterBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-24, 8)
 script = ExtResource("1_p1630")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerBody2D"]
 sprite_frames = SubResource("SpriteFrames_15y2a")
-animation = &"WalkDownRight"
+animation = &"IdleDown"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody2D"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_245lx")
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_ttmfl")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerBody2D"]
-zoom = Vector2(10, 10)
-
-[node name="CuttableTree" type="Sprite2D" parent="."]
-position = Vector2(-33, -7)
-texture = ExtResource("4_a2s2a")
+zoom = Vector2(5, 5)

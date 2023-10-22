@@ -6,6 +6,7 @@ using Godot.Collections;
 using System.Linq;
 using System.Collections;
 using System.Text.Json.Serialization;
+using HelperFiles.trainerConstantHandler;
 public partial class node_2d : Node2D
 {
 	// Called when the node enters the scene tree for the first time.

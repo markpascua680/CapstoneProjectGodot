@@ -226,7 +226,6 @@ layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(-327679, 196610, 0, -262143, 65538, 0, -196607, 131074, 0, -131071, 196610, 0, -65535, 131074, 0, -327678, 196610, 0, -262142, 131074, 0, -196606, 196610, 0, -131070, 196610, 0, -65534, 65538, 0, -327677, 196610, 0, -262141, 131074, 0, -196605, 196610, 0, -131069, 196610, 0, -65533, 131074, 0)
 
 [node name="Objects" type="Node2D" parent="."]
-y_sort_enabled = true
 scale = Vector2(3, 3)
 
 [node name="Home1" parent="Objects" instance=ExtResource("3_kpt8i")]

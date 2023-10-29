@@ -247,6 +247,8 @@ position = Vector2(56, 37.3333)
 [node name="Home6" parent="Objects" instance=ExtResource("3_kpt8i")]
 position = Vector2(72, 37.3333)
 
+[node name="PlayerHome" type="StaticBody2D" parent="Objects"]
+
 [node name="Well" type="StaticBody2D" parent="Objects"]
 y_sort_enabled = true
 position = Vector2(10.6667, -0.333333)

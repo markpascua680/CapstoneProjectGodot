@@ -176,13 +176,13 @@ region = Rect2(0, 16, 16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6q8oi"]
 size = Vector2(4.33333, 2.66667)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hh6gw"]
-atlas = ExtResource("7_vyqth")
-region = Rect2(0, 16, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_fnvro"]
 atlas = ExtResource("7_vyqth")
 region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh6gw"]
+atlas = ExtResource("7_vyqth")
+region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5tmge"]
 atlas = ExtResource("7_vyqth")
@@ -192,10 +192,10 @@ region = Rect2(32, 16, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hh6gw")
+"texture": SubResource("AtlasTexture_fnvro")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fnvro")
+"texture": SubResource("AtlasTexture_hh6gw")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5tmge")
@@ -226,6 +226,7 @@ layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(-327679, 196610, 0, -262143, 65538, 0, -196607, 131074, 0, -131071, 196610, 0, -65535, 131074, 0, -327678, 196610, 0, -262142, 131074, 0, -196606, 196610, 0, -131070, 196610, 0, -65534, 65538, 0, -327677, 196610, 0, -262141, 131074, 0, -196605, 196610, 0, -131069, 196610, 0, -65533, 131074, 0)
 
 [node name="Objects" type="Node2D" parent="."]
+y_sort_enabled = true
 scale = Vector2(3, 3)
 
 [node name="Home1" parent="Objects" instance=ExtResource("3_kpt8i")]
@@ -238,19 +239,14 @@ position = Vector2(64, 2.66667)
 position = Vector2(80, 2.66667)
 
 [node name="Home4" parent="Objects" instance=ExtResource("3_kpt8i")]
-position = Vector2(48, 29.3333)
-
-[node name="Home5" parent="Objects" instance=ExtResource("3_kpt8i")]
-position = Vector2(64, 29.3333)
-
-[node name="Home6" parent="Objects" instance=ExtResource("3_kpt8i")]
-position = Vector2(80, 29.3333)
+position = Vector2(47.6667, 37)
 
 [node name="Well" type="StaticBody2D" parent="Objects"]
 y_sort_enabled = true
 position = Vector2(10.6667, -0.333333)
 
 [node name="Sprite2D" type="Sprite2D" parent="Objects/Well"]
+y_sort_enabled = true
 position = Vector2(-26.5, -16)
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_agpas")
@@ -266,16 +262,18 @@ script = ExtResource("7_8ckdb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Objects/Watermill"]
 y_sort_enabled = true
-position = Vector2(-48, -16)
+position = Vector2(-55, -8)
 sprite_frames = SubResource("SpriteFrames_wns8r")
 frame_progress = 0.885405
+centered = false
+offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Watermill"]
-position = Vector2(-48, -15.1667)
+position = Vector2(-47, -15.6667)
 shape = SubResource("RectangleShape2D_gt5i5")
 
 [node name="Player" parent="." instance=ExtResource("4_6av1t")]
-y_sort_enabled = true
+position = Vector2(155, 31)
 
 [node name="Nature" type="Node2D" parent="."]
 y_sort_enabled = true

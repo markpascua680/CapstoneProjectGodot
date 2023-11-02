@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdo7bn0yccmva"]
+
+[ext_resource type="Script" path="res://Controller/scene_manager.cs" id="1_kxfqu"]
+[ext_resource type="PackedScene" uid="uid://bb3fu25u44i7p" path="res://overworld.tscn" id="2_uohhr"]
+
+[sub_resource type="Animation" id="Animation_y40e8"]
+resource_name = "FadeToBlack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"TransitionFinished"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_3o8yg"]
+resource_name = "FadeToScene"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_828hl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i8i5u"]
+_data = {
+"FadeToBlack": SubResource("Animation_y40e8"),
+"FadeToScene": SubResource("Animation_3o8yg"),
+"RESET": SubResource("Animation_828hl")
+}
+
+[node name="SceneManager" type="Node2D"]
+script = ExtResource("1_kxfqu")
+
+[node name="CurrentScene" type="Node2D" parent="."]
+
+[node name="Overworld" parent="CurrentScene" instance=ExtResource("2_uohhr")]
+
+[node name="ScreenTransition" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ScreenTransition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -23.0
+offset_right = 27.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ScreenFade" type="AnimationPlayer" parent="ScreenTransition"]
+libraries = {
+"": SubResource("AnimationLibrary_i8i5u")
+}

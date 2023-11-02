@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Entities"
-run/main_scene="res://overworld.tscn"
+run/main_scene="res://Scenes/scene_manager.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -51,6 +51,11 @@ Run={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_2="Door"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

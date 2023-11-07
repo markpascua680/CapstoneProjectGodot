@@ -1,27 +1,41 @@
 using Godot;
+using Model.GlobalVariables;
 
 public partial class playerMovement : CharacterBody2D
 {
-	public float moveSpeed;
-	public bool isMoving;
-	public bool isSprinting;
-	private Vector2 input;
-	private float acceleration = 1.0001f;
-	private float topSpeed = 0.5f; //boots = 0.025 
-	private float sprintSpeed = 0.75f;
-	private float movementTime = 0.0f;
+	[Signal]
+	public delegate void  DoorEnteredEventHandler();
+	
+	private Vector2 inputDirection;
+	
 	private AnimatedSprite2D animation;
+
+	// Ray casts
+	private RayCast2D DoorRay;
+
+	private string PlayerDirection;
 
 	[Export]
 	public int Speed { get; set; } = 100;
 
 	public override void _Ready()
-	{
+	{	
 		animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		DoorRay = GetNode<RayCast2D>("DoorRayCast2D");
+
+		if (GlobalVariables.PlayerGlobalPosition != Vector2.Zero)
+			{
+				GlobalPosition = GlobalVariables.PlayerGlobalPosition;
+			}
+
+		if (GlobalVariables.PlayerDirection != null)
+		{
+			animation.Play(GlobalVariables.PlayerDirection);
+		}
 	}
 	public void GetInput()
 	{
-		Vector2 inputDirection = Input.GetVector("left", "right", "up", "down");
+		inputDirection = Input.GetVector("left", "right", "up", "down");
 		Velocity = inputDirection * Speed;
 	}
 
@@ -29,59 +43,74 @@ public partial class playerMovement : CharacterBody2D
 	{
 		GetInput();
 		MoveAndSlide();
-		
+		PlayAnimation();
+
+		DoorRay.TargetPosition = inputDirection * 8;
+		DoorRay.ForceRaycastUpdate();
+
+		if (DoorRay.IsColliding())
+		{
+			EmitSignal(SignalName.DoorEntered, DoorRay.GetCollider().Get("Rid"));
+		}
+	}
+
+	private void PlayAnimation()
+	{
 		if (Input.IsActionPressed("up"))
 		{
 			if (Input.IsActionPressed("left"))
-				animation.Play("WalkUpLeft");
+				PlayerDirection = "WalkUpLeft";
 			else if (Input.IsActionPressed("right"))
-				animation.Play("WalkUpRight");
+				PlayerDirection = "WalkUpRight";
 			else
-				animation.Play("WalkUp");
+				PlayerDirection = "WalkUp";
 		}
 		else if (Input.IsActionPressed("down"))
 		{
 			if (Input.IsActionPressed("left"))
-				animation.Play("WalkDownLeft");
+				PlayerDirection = "WalkDownLeft";
 			else if (Input.IsActionPressed("right"))
-				animation.Play("WalkDownRight");
+				PlayerDirection = "WalkDownRight";
 			else
-				animation.Play("WalkDown");
+				PlayerDirection = "WalkDown";
 		}
 		else if (Input.IsActionPressed("left"))
 		{
 			if (Input.IsActionPressed("up"))
-				animation.Play("WalkUpLeft");
+				PlayerDirection = "WalkUpLeft";
 			else if (Input.IsActionPressed("down"))
-				animation.Play("WalkDownLeft");
+				PlayerDirection = "WalkDownLeft";
 			else
-				animation.Play("WalkLeft");
+				PlayerDirection = "WalkLeft";
 		}
 		else if (Input.IsActionPressed("right"))
 		{
 			if (Input.IsActionPressed("up"))
-				animation.Play("WalkUpRight");
+				PlayerDirection = "WalkUpRight";
 			else if (Input.IsActionPressed("down"))
-				animation.Play("WalkDownRight");
+				PlayerDirection = "WalkDownRight";
 			else
-				animation.Play("WalkRight");
+				PlayerDirection = "WalkRight";
 		}
 		
 		if (Input.IsActionJustReleased("up"))
 		{
-			animation.Play("IdleUp");
+			PlayerDirection = "IdleUp";
 		}
 		else if (Input.IsActionJustReleased("down"))
 		{
-			animation.Play("IdleDown");
+			PlayerDirection = "IdleDown";
 		}
 		else if (Input.IsActionJustReleased("left"))
 		{
-			animation.Play("IdleLeft");
+			PlayerDirection = "IdleLeft";
 		}
 		else if (Input.IsActionJustReleased("right"))
 		{
-			animation.Play("IdleRight");
+			PlayerDirection = "IdleRight";
 		}
+
+		animation.Play(PlayerDirection);
+		GlobalVariables.PlayerDirection = PlayerDirection;
 	}
 }

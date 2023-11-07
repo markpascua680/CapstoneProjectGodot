@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://crda44lff8l0m"]
+
+[ext_resource type="Texture2D" uid="uid://c041lvy5kyxhc" path="res://View/Buildings/Cyan/CyanHouses.png" id="1_cqwqk"]
+[ext_resource type="PackedScene" uid="uid://le0x6wp7m7q1" path="res://Scenes/door.tscn" id="2_0b07s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3w2r"]
+atlas = ExtResource("1_cqwqk")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5h3x"]
+size = Vector2(14, 9)
+
+[node name="PlayerHome" type="StaticBody2D"]
+y_sort_enabled = true
+collision_layer = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_t3w2r")
+centered = false
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, -8.5)
+shape = SubResource("RectangleShape2D_i5h3x")
+
+[node name="DoorArea2D" parent="." instance=ExtResource("2_0b07s")]
+top_level = false
+position = Vector2(10, -2)
+NextScenePath = "res://Scenes/player_home_floor_1.tscn"

@@ -626,7 +626,7 @@ scale = Vector2(3, 3)
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="NPCs" parent="Node2D" instance=ExtResource("12_alwnd")]
-position = Vector2(67, 112)
+position = Vector2(64, 113)
 metadata/npcid = "littleDude"
 
 [node name="NPCs2" parent="Node2D" instance=ExtResource("12_alwnd")]

@@ -1,24 +1,24 @@
 {
 	"defaultTestEnemy":
 	{
-			"name":"None",
-			"consumables":[0,1,2,3],
-			"entityTeam":
-			[
-				{
-					"spriteID":0,
-					"lvl":1,
-					"moveSet":[0,1,2,3],
-					"equipment":[0]
-				},
-				{
-					"spriteID":1,
-					"lvl":100,
-					"moveSet":[0,1,2,3],
-					"equipment":[0]
-				
-				}
-			]
+		"name":"None",
+		"consumables":[0,1,2,3],
+		"entityTeam":
+		[
+			{
+				"spriteID":0,
+				"lvl":1,
+				"moveSet":[0,1,2,3],
+				"equipment":[0]
+			},
+			{
+				"spriteID":1,
+				"lvl":100,
+				"moveSet":[0,1,2,3],
+				"equipment":[0]
+			
+			}
+		]
 	},
 	"littleDude":
 	{
@@ -27,16 +27,16 @@
 		"entityTeam":
 			[
 				{
-						"spriteID":2,
-						"lvl":1,
-						"moveSet":[0,1,2,3],
-						"equipment":[0]
+					"spriteID":2,
+					"lvl":1,
+					"moveSet":[0,1,2,3],
+					"equipment":[0]
 				},
 				{
-						"spriteID":3,
-						"lvl":5,
-						"moveSet":[0,1,2,3],
-						"equipment":[0]
+					"spriteID":3,
+					"lvl":5,
+					"moveSet":[0,1,2,3],
+					"equipment":[0]
 				}
 			]
 	},
@@ -47,16 +47,16 @@
 		"entityTeam":
 			[
 				{
-						"spriteID":0,
-						"lvl":5,
-						"moveSet":[0,1,2,3],
-						"equipment":[0]
+					"spriteID":0,
+					"lvl":5,
+					"moveSet":[0,1,2,3],
+					"equipment":[0]
 				},
 				{
-						"spriteID":0,
-						"lvl":5,
-						"moveSet":[0,1,2,3],
-						"equipment":[0]
+					"spriteID":0,
+					"lvl":5,
+					"moveSet":[0,1,2,3],
+					"equipment":[0]
 				}
 			]
 	}

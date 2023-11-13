@@ -138,6 +138,8 @@ shape = SubResource("CapsuleShape2D_1lq77")
 position = Vector2(8, -8)
 sprite_frames = SubResource("SpriteFrames_6rynr")
 animation = &"IdleDown"
+frame = 2
+frame_progress = 0.486623
 
 [node name="RayCast1" type="RayCast2D" parent="NPC1-LittleDude"]
 position = Vector2(8, 0)

@@ -114,9 +114,9 @@ position = Vector2(115, 65)
 zoom = Vector2(5, 5)
 
 [node name="combatControls" type="RichTextLabel" parent="."]
-offset_top = 89.0
+offset_top = 90.0
 offset_right = 230.0
-offset_bottom = 129.0
+offset_bottom = 130.0
 text = "This is some Test Text"
 
 [node name="Player" type="Node2D" parent="."]

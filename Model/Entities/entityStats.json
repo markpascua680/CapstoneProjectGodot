@@ -1,42 +1,42 @@
 [
     {
-    "ID":0,
-    "folderLocation":"",
-    "Atk":1,
-    "SpAtk":1,
-    "Def":1,
-    "SpDef":1,
-    "Speed":1,
-    "MaxHP":150
+        "ID":0,
+        "folderLocation":"",
+        "Atk":1,
+        "SpAtk":1,
+        "Def":1,
+        "SpDef":1,
+        "Speed":1,
+        "MaxHP":150
     },
     {
-    "ID":1,
-    "folderLocation":"",
-    "Atk":1,
-    "SpAtk":1,
-    "Def":1,
-    "SpDef":1,
-    "Speed":1,
-    "MaxHP":1000000
+        "ID":1,
+        "folderLocation":"",
+        "Atk":1,
+        "SpAtk":1,
+        "Def":1,
+        "SpDef":1,
+        "Speed":1,
+        "MaxHP":1000000
     },
     {
-    "ID":2,
-    "folderLocation":"",
-    "Atk":1,
-    "SpAtk":1,
-    "Def":1,
-    "SpDef":1,
-    "Speed":1,
-    "MaxHP":10
+        "ID":2,
+        "folderLocation":"",
+        "Atk":1,
+        "SpAtk":1,
+        "Def":1,
+        "SpDef":1,
+        "Speed":1,
+        "MaxHP":10
     },
     {
-    "ID":3,
-    "folderLocation":"",
-    "Atk":1,
-    "SpAtk":1,
-    "Def":1,
-    "SpDef":1,
-    "Speed":1,
-    "MaxHP":277 
+        "ID":3,
+        "folderLocation":"",
+        "Atk":1,
+        "SpAtk":1,
+        "Def":1,
+        "SpDef":1,
+        "Speed":1,
+        "MaxHP":277 
     }
 ]

@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdo7bn0yccmva"]
+[gd_scene load_steps=7 format=3 uid="uid://b6jj70b5yq165"]
 
-[ext_resource type="Script" path="res://Controller/scene_manager.cs" id="1_kxfqu"]
+[ext_resource type="Script" path="res://Controller/SceneManager.cs" id="1_ll657"]
 [ext_resource type="PackedScene" uid="uid://bb3fu25u44i7p" path="res://overworld.tscn" id="2_uohhr"]
 
 [sub_resource type="Animation" id="Animation_y40e8"]
@@ -72,7 +72,7 @@ _data = {
 }
 
 [node name="SceneManager" type="Node2D"]
-script = ExtResource("1_kxfqu")
+script = ExtResource("1_ll657")
 
 [node name="CurrentScene" type="Node2D" parent="."]
 

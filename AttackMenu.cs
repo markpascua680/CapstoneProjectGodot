@@ -12,14 +12,14 @@ public partial class AttackMenu : Control
 	private Button BackButton;
 	public override void _Ready()
 	{
+
 		BoxContainer = GetChild(0).GetChild<BoxContainer>(0);
+		BoxContainer.Hide();
 		Move1Button = BoxContainer.GetChild(0).GetChild<Button>(0);
 		Move2Button = BoxContainer.GetChild(1).GetChild<Button>(0);
 		Move3Button = BoxContainer.GetChild(0).GetChild<Button>(1);
 		Move4Button = BoxContainer.GetChild(1).GetChild<Button>(1);
 		BackButton = BoxContainer.GetChild<Button>(2);
-		
-
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,9 +27,13 @@ public partial class AttackMenu : Control
 	{
 	}
 
+	private void _on_move_1_focus_entered()
+	{
+			BoxContainer.Show();
+	}
 	private void _on_focus_entered()
 	{
-		// Replace with function body.
+
 	}
 
 
@@ -69,3 +73,6 @@ public partial class AttackMenu : Control
 		// Replace with function body.
 	}
 }
+
+
+

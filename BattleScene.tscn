@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cfjwa7by2bida"]
+[gd_scene load_steps=21 format=3 uid="uid://cfjwa7by2bida"]
 
 [ext_resource type="Script" path="res://Controller/Scenes/BattleScene.cs" id="1_4sqj3"]
 [ext_resource type="Texture2D" uid="uid://dct65km43cdb1" path="res://View/Animals/Boar.png" id="2_x27u0"]
 [ext_resource type="Texture2D" uid="uid://duuj8rixjghqk" path="res://View/User Interface/Highlighted-Boxes.png" id="3_y4lov"]
 [ext_resource type="Texture2D" uid="uid://bu6krlocfwm8a" path="res://View/Animals/HornedSheep.png" id="4_alna2"]
+[ext_resource type="PackedScene" uid="uid://71f1rs4kv8b0" path="res://FightMenu.tscn" id="5_ngqwh"]
+[ext_resource type="PackedScene" uid="uid://ci144dtkmy45h" path="res://AttackMenu.tscn" id="6_gbjmr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0wat"]
 atlas = ExtResource("2_x27u0")
@@ -113,12 +115,6 @@ script = ExtResource("1_4sqj3")
 position = Vector2(115, 65)
 zoom = Vector2(5, 5)
 
-[node name="combatControls" type="RichTextLabel" parent="."]
-offset_top = 90.0
-offset_right = 230.0
-offset_bottom = 130.0
-text = "This is some Test Text"
-
 [node name="Player" type="Node2D" parent="."]
 z_index = 1
 
@@ -168,3 +164,31 @@ frame_progress = 0.886854
 position = Vector2(182, 11)
 scale = Vector2(6, 1.3125)
 sprite_frames = SubResource("SpriteFrames_eh6x0")
+
+[node name="AttackMenu" parent="." instance=ExtResource("6_gbjmr")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 2.0
+offset_top = 82.0
+offset_right = 287.0
+offset_bottom = 134.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1.25, 0.7)
+size_flags_vertical = 4
+
+[node name="MainFightMenu" parent="." instance=ExtResource("5_ngqwh")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -40.0
+offset_top = 96.0
+offset_right = 114.0
+offset_bottom = 128.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(2.015, 0.63)
+
+[connection signal="focus_entered" from="MainFightMenu" to="MainFightMenu" method="_on_focus_entered"]
+[connection signal="focus_exited" from="MainFightMenu" to="MainFightMenu" method="_on_focus_exited"]

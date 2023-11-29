@@ -37,6 +37,7 @@ public partial class FightMenu : Control
 		FightButton.GrabFocus();
 		GD.Print(GetParent());
 		
+		
 	}
 	private void OnItemPressed()
 	{
@@ -49,6 +50,7 @@ public partial class FightMenu : Control
 		focusTest.FocusMode = FocusModeEnum.All;
 		//Move1
 		focusTest.GetChild(0).GetChild(0).GetChild(0).GetChild<Button>(0).GrabFocus();
+		BoxContainer.Hide();	
 	}
 	private void OnSwitchPressed()
 	{
@@ -61,6 +63,7 @@ public partial class FightMenu : Control
 	}
 	private void _on_focus_exited()
 	{
+		GD.Print("heyo");
 		BoxContainer.Hide();	
 	}
 	

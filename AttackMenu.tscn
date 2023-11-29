@@ -107,6 +107,7 @@ text = "Back"
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="focus_entered" from="MarginContainer/BoxContainer/VBoxContainer/Move1" to="." method="_on_move_1_focus_entered"]
 [connection signal="pressed" from="MarginContainer/BoxContainer/VBoxContainer/Move1" to="." method="_on_move_1_pressed"]
 [connection signal="pressed" from="MarginContainer/BoxContainer/VBoxContainer/Move3" to="." method="_on_move_3_pressed"]
 [connection signal="pressed" from="MarginContainer/BoxContainer/VBoxContainer2/Move2" to="." method="_on_move_2_pressed"]

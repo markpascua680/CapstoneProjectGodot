@@ -17,9 +17,9 @@ public partial class SceneManager : Node2D
 	
 	private CharacterBody2D PlayerBody;
 
-	private AudioStreamPlayer2D MusicPlayer;
+	private AudioStreamPlayer2D HometownMusicPlayer;
 
-	private float MusicLoopAtTime;
+	private AudioStreamPlayer2D BattleMusicPlayer;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -31,21 +31,13 @@ public partial class SceneManager : Node2D
 		TransitionScreen.Color = new Color(0, 0, 0, 0);
 		CurrentGameState = GameStates.TITLE_SCREEN;
 		
-		MusicPlayer = GetNode<AudioStreamPlayer2D>("MusicPlayer");
-		
+		HometownMusicPlayer = GetNode<AudioStreamPlayer2D>("HometownMusicPlayer");
+		BattleMusicPlayer = GetNode<AudioStreamPlayer2D>("BattleMusicPlayer");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		GD.Print(MusicPlayer.GetPlaybackPosition());
-		//if (!MusicPlayer.Playing)
-		//	LoopMusic(MusicLoopAtTime);
-	}
-
-	public void LoopMusic(float LoopAtTime)
-	{
-		
 	}
 
 	private void TransitionToScene(string NewScenePath, Vector2 SpawnPositionAfterTransition)

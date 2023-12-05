@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cfjwa7by2bida"]
+[gd_scene load_steps=33 format=3 uid="uid://cfjwa7by2bida"]
 
 [ext_resource type="Script" path="res://Controller/Scenes/BattleScene.cs" id="1_4sqj3"]
 [ext_resource type="Texture2D" uid="uid://b2irksvrd2edu" path="res://View/Ground/TexturedGrass.png" id="2_exq5g"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cmx1tp0f7nv5n" path="res://View/Ground/Grass.png" id="4_r5g1h"]
 [ext_resource type="Texture2D" uid="uid://cv3pcfuurefp5" path="res://View/Nature/Trees.png" id="5_ia2dy"]
 [ext_resource type="PackedScene" uid="uid://71f1rs4kv8b0" path="res://FightMenu.tscn" id="5_ngqwh"]
+[ext_resource type="FontFile" uid="uid://vovsd2e3w1gg" path="res://View/m5x7.ttf" id="6_1c01f"]
 [ext_resource type="PackedScene" uid="uid://ci144dtkmy45h" path="res://AttackMenu.tscn" id="6_gbjmr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_272op"]
@@ -155,6 +156,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_o04st"]
+atlas = ExtResource("3_y4lov")
+region = Rect2(0, 0, 16, 16)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_4sqj3")
 
@@ -283,11 +288,14 @@ anchors_preset = -1
 anchor_left = -0.504
 anchor_top = -1.422
 offset_left = 8.0
-offset_top = 3.0
-offset_right = 90.0
-offset_bottom = 22.0
-scale = Vector2(0.25, 0.25)
-text = "dsfds"
+offset_top = 2.0
+offset_right = 158.0
+offset_bottom = 27.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("6_1c01f")
+theme_override_font_sizes/normal_font_size = 32
+text = "100/100
+"
 scroll_active = false
 
 [node name="playerEntity" type="AnimatedSprite2D" parent="Player"]
@@ -305,12 +313,14 @@ sprite_frames = SubResource("SpriteFrames_eh6x0")
 [node name="Enemy" type="Node2D" parent="."]
 
 [node name="enemyEntityText" type="RichTextLabel" parent="Enemy"]
-offset_left = 140.0
+offset_left = 145.0
 offset_top = 2.0
-offset_right = 224.0
-offset_bottom = 20.0
+offset_right = 295.0
+offset_bottom = 27.0
 scale = Vector2(0.5, 0.5)
-text = "This is some Test Text"
+theme_override_fonts/normal_font = ExtResource("6_1c01f")
+theme_override_font_sizes/normal_font_size = 32
+text = "100/100"
 scroll_active = false
 
 [node name="enemyEntity" type="AnimatedSprite2D" parent="Enemy"]
@@ -321,7 +331,7 @@ sprite_frames = SubResource("SpriteFrames_8e7x4")
 frame_progress = 0.886854
 
 [node name="enemyHealth" type="AnimatedSprite2D" parent="Enemy"]
-position = Vector2(182, 11)
+position = Vector2(184, 11)
 scale = Vector2(6, 1.3125)
 sprite_frames = SubResource("SpriteFrames_eh6x0")
 
@@ -337,13 +347,44 @@ size_flags_vertical = 4
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 13.0
+offset_left = 16.0
 offset_top = 92.0
-offset_right = 167.0
-offset_bottom = 124.0
+offset_right = 244.0
+offset_bottom = 144.0
 grow_horizontal = 1
 grow_vertical = 1
-scale = Vector2(1.635, 0.5)
+scale = Vector2(1.858, 0.938)
+
+[node name="MessageBoxContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MessageBoxContainer"]
+self_modulate = Color(0.239216, 0.239216, 0.239216, 1)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 92.0
+offset_right = 216.0
+offset_bottom = 126.0
+texture = SubResource("AtlasTexture_o04st")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MessageBoxText" type="RichTextLabel" parent="MessageBoxContainer/NinePatchRect"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 386.0
+offset_bottom = 62.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("6_1c01f")
+theme_override_font_sizes/normal_font_size = 32
+text = "Test"
+scroll_active = false
 
 [connection signal="focus_entered" from="AttackMenu" to="." method="_on_attack_menu_focus_entered"]
 [connection signal="focus_entered" from="MainFightMenu" to="MainFightMenu" method="_on_focus_entered"]

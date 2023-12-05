@@ -1,10 +1,13 @@
 using Godot;
+using Model.Game;
 using Model.GlobalVariables;
 using System;
 
 public partial class SceneManager : Node2D
 {
 	public string NextScenePath = null;
+
+	public GameStates CurrentGameState;
 
 	private Node2D CurrentScene;
 	
@@ -19,9 +22,10 @@ public partial class SceneManager : Node2D
 	{
 		Animation = (AnimationPlayer)FindChild("ScreenFade");
 		CurrentScene = GetNode<Node2D>("CurrentScene");
-		PlayerBody = (CharacterBody2D)CurrentScene.FindChild("PlayerBody2D");
+		//PlayerBody = (CharacterBody2D)CurrentScene.FindChild("PlayerBody2D");
 		TransitionScreen = (ColorRect)FindChild("ColorRect");
 		TransitionScreen.Color = new Color(0, 0, 0, 0);
+		CurrentGameState = GameStates.TITLE_SCREEN;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,0 +1,120 @@
+[gd_scene load_steps=7 format=3 uid="uid://crakeo7chb0py"]
+
+[ext_resource type="Script" path="res://Controller/Scenes/PauseMenu.cs" id="1_0gxy1"]
+[ext_resource type="Texture2D" uid="uid://duuj8rixjghqk" path="res://View/User Interface/Highlighted-Boxes.png" id="1_uo0ix"]
+[ext_resource type="FontFile" uid="uid://vovsd2e3w1gg" path="res://View/m5x7.ttf" id="2_encm1"]
+[ext_resource type="Texture2D" uid="uid://bnrevosxcwewj" path="res://View/User Interface/BoxSelector.png" id="4_ki58g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5irpf"]
+atlas = ExtResource("1_uo0ix")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwtey"]
+atlas = ExtResource("4_ki58g")
+region = Rect2(0, 0, 16, 16)
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_0gxy1")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_neighbor_top = NodePath("NinePatchRect/VBoxContainer/Exit")
+focus_neighbor_bottom = NodePath("NinePatchRect/VBoxContainer/Entities")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 130.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 130.0
+texture = SubResource("AtlasTexture_5irpf")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/NinePatchRect"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 60.0
+offset_bottom = 125.0
+
+[node name="Entities" type="Button" parent="Control/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Exit")
+focus_neighbor_bottom = NodePath("../Bag")
+focus_next = NodePath("../Bag")
+focus_previous = NodePath("../Exit")
+theme_override_fonts/font = ExtResource("2_encm1")
+text = "Entities"
+
+[node name="Bag" type="Button" parent="Control/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Entities")
+focus_neighbor_bottom = NodePath("../Options")
+focus_next = NodePath("../Options")
+focus_previous = NodePath("../Entities")
+theme_override_fonts/font = ExtResource("2_encm1")
+text = "Bag"
+
+[node name="Options" type="Button" parent="Control/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Bag")
+focus_neighbor_bottom = NodePath("../Save")
+focus_next = NodePath("../Save")
+focus_previous = NodePath("../Bag")
+theme_override_fonts/font = ExtResource("2_encm1")
+text = "Options"
+
+[node name="Save" type="Button" parent="Control/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../Exit")
+focus_next = NodePath("../Exit")
+focus_previous = NodePath("../Options")
+theme_override_fonts/font = ExtResource("2_encm1")
+text = "Save"
+
+[node name="Exit" type="Button" parent="Control/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Save")
+focus_neighbor_bottom = NodePath("../Entities")
+focus_next = NodePath("../Entities")
+focus_previous = NodePath("../Save")
+theme_override_fonts/font = ExtResource("2_encm1")
+text = "Exit"
+
+[node name="Selector" type="NinePatchRect" parent="Control/NinePatchRect"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 60.0
+offset_bottom = 25.0
+texture = SubResource("AtlasTexture_fwtey")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[connection signal="button_up" from="Control/NinePatchRect/VBoxContainer/Entities" to="." method="OnEntitiesButtonUp"]
+[connection signal="mouse_entered" from="Control/NinePatchRect/VBoxContainer/Entities" to="." method="OnEntitiesButtonMouseEntered"]
+[connection signal="mouse_exited" from="Control/NinePatchRect/VBoxContainer/Entities" to="." method="OnEntitiesButtonMouseExited"]
+[connection signal="button_up" from="Control/NinePatchRect/VBoxContainer/Bag" to="." method="OnBagButtonUp"]
+[connection signal="mouse_entered" from="Control/NinePatchRect/VBoxContainer/Bag" to="." method="OnBagButtonMouseEntered"]
+[connection signal="mouse_exited" from="Control/NinePatchRect/VBoxContainer/Bag" to="." method="OnBagButtonMouseExited"]
+[connection signal="button_up" from="Control/NinePatchRect/VBoxContainer/Options" to="." method="OnOptionsButtonUp"]
+[connection signal="mouse_entered" from="Control/NinePatchRect/VBoxContainer/Options" to="." method="OnOptionsButtonMouseEntered"]
+[connection signal="mouse_exited" from="Control/NinePatchRect/VBoxContainer/Options" to="." method="OnOptionsButtonMouseExited"]
+[connection signal="button_up" from="Control/NinePatchRect/VBoxContainer/Save" to="." method="OnSaveButtonUp"]
+[connection signal="mouse_entered" from="Control/NinePatchRect/VBoxContainer/Save" to="." method="OnSaveButtonMouseEntered"]
+[connection signal="mouse_exited" from="Control/NinePatchRect/VBoxContainer/Save" to="." method="OnSaveButtonMouseExited"]
+[connection signal="button_up" from="Control/NinePatchRect/VBoxContainer/Exit" to="." method="OnExitButtonUp"]
+[connection signal="mouse_entered" from="Control/NinePatchRect/VBoxContainer/Exit" to="." method="OnExitButtonMouseEntered"]
+[connection signal="mouse_exited" from="Control/NinePatchRect/VBoxContainer/Exit" to="." method="OnExitButtonMouseExited"]

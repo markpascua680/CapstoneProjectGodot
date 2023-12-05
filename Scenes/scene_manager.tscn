@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Controller/SceneManager.cs" id="1_ll657"]
 [ext_resource type="PackedScene" uid="uid://bb3fu25u44i7p" path="res://overworld.tscn" id="2_2y7dj"]
-[ext_resource type="PackedScene" path="res://Scenes/PauseMenu.tscn" id="3_h8nqo"]
+[ext_resource type="PackedScene" uid="uid://crakeo7chb0py" path="res://Scenes/PauseMenu.tscn" id="3_h8nqo"]
 
 [sub_resource type="Animation" id="Animation_y40e8"]
 resource_name = "FadeToBlack"

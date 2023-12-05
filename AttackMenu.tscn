@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci144dtkmy45h"]
+[gd_scene load_steps=3 format=3 uid="uid://ci144dtkmy45h"]
 
 [ext_resource type="Script" path="res://AttackMenu.cs" id="1_sfnye"]
+[ext_resource type="FontFile" uid="uid://vovsd2e3w1gg" path="res://View/m5x7.ttf" id="2_wasfm"]
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(100, 50)
@@ -12,7 +13,7 @@ script = ExtResource("1_sfnye")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 267.0
+offset_right = 268.0
 offset_bottom = 69.0
 
 [node name="BoxContainer" type="BoxContainer" parent="MarginContainer"]
@@ -28,6 +29,8 @@ layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_right = NodePath("../../VBoxContainer2/Move2")
 focus_neighbor_bottom = NodePath("../Move3")
+theme_override_fonts/font = ExtResource("2_wasfm")
+theme_override_font_sizes/font_size = 32
 text = "Move 1"
 text_overrun_behavior = 1
 
@@ -46,6 +49,8 @@ layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../Move1")
 focus_neighbor_right = NodePath("../../VBoxContainer2/Move4")
+theme_override_fonts/font = ExtResource("2_wasfm")
+theme_override_font_sizes/font_size = 32
 text = "Move 3"
 text_overrun_behavior = 1
 
@@ -69,6 +74,8 @@ size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../VBoxContainer/Move1")
 focus_neighbor_right = NodePath("../../Back")
 focus_neighbor_bottom = NodePath("../Move4")
+theme_override_fonts/font = ExtResource("2_wasfm")
+theme_override_font_sizes/font_size = 32
 text = "Move 2"
 text_overrun_behavior = 1
 
@@ -88,6 +95,8 @@ size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../VBoxContainer/Move3")
 focus_neighbor_top = NodePath("../Move2")
 focus_neighbor_right = NodePath("../../Back")
+theme_override_fonts/font = ExtResource("2_wasfm")
+theme_override_font_sizes/font_size = 32
 text = "Move 4"
 text_overrun_behavior = 1
 
@@ -103,6 +112,8 @@ color = Color(0.0901961, 1, 1, 1)
 
 [node name="Back" type="Button" parent="MarginContainer/BoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wasfm")
+theme_override_font_sizes/font_size = 32
 text = "Back"
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]

@@ -12,7 +12,7 @@
         "ID":1,
         "ElementalType":"None",
         "AttackCategory":"SPECIAL",
-        "Name":"Migraine",
+        "Name":"Blast",
         "Accuracy":100,
         "MoveSlots":40,
         "Power": 30
@@ -21,7 +21,7 @@
         "ID":2,
         "ElementalType":"None",
         "AttackCategory":"PHYSICAL",
-        "Name":"AHHHH",
+        "Name":"Headbutt",
         "Accuracy":100,
         "MoveSlots":40,
         "Power": 30
@@ -30,7 +30,7 @@
         "ID":0,
         "ElementalType":"None",
         "AttackCategory":"PHYSICAL",
-        "Name":"ScreenShot",
+        "Name":"Bite",
         "Accuracy":100,
         "MoveSlots":40,
         "Power": 30

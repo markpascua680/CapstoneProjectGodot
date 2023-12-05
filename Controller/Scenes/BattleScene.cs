@@ -318,6 +318,7 @@ public partial class BattleScene : Node2D
 
 	public void ExitBattleScene()
 	{
+		StartHometownMusic();
 		GetTree().Root.GetChild(0).Call("TransitionToScene", "res://overworld.tscn", GlobalVariables.PlayerGlobalPosition);
 	}	
 	
@@ -328,6 +329,15 @@ public partial class BattleScene : Node2D
 
 		var BattleMusicPlayer = (AudioStreamPlayer2D)GetTree().Root.GetChild(0).FindChild("BattleMusicPlayer");
 		BattleMusicPlayer.Play();
+	}
+	
+	public void StartHometownMusic()
+	{
+		var BattleMusicPlayer = (AudioStreamPlayer2D)GetTree().Root.GetChild(0).FindChild("BattleMusicPlayer");
+		BattleMusicPlayer.Stop();
+
+		var HometownMusicPlayer = (AudioStreamPlayer2D)GetTree().Root.GetChild(0).FindChild("HometownMusicPlayer");
+		HometownMusicPlayer.Play();
 	}
 }
 

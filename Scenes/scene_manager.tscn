@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Controller/SceneManager.cs" id="1_ll657"]
 [ext_resource type="PackedScene" uid="uid://bb3fu25u44i7p" path="res://overworld.tscn" id="2_2y7dj"]
-[ext_resource type="PackedScene" uid="uid://crakeo7chb0py" uid="uid://crakeo7chb0py" path="res://Scenes/PauseMenu.tscn" id="3_h8nqo"]
+[ext_resource type="PackedScene" uid="uid://crakeo7chb0py" path="res://Scenes/PauseMenu.tscn" id="3_h8nqo"]
 [ext_resource type="AudioStream" uid="uid://bb70dhd224nrb" path="res://Audio/Hometown.wav" id="4_pyl4b"]
 [ext_resource type="AudioStream" uid="uid://cvdtfhagtappd" path="res://Audio/BattleTheme.wav" id="5_xnulm"]
 

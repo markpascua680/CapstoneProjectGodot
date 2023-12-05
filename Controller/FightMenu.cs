@@ -58,6 +58,8 @@ public partial class FightMenu : Control
 	private void OnRunPressed()
 	{
 		var NextScenePath = "res://overworld.tscn";
+		var battleScene = GetParent();
+		battleScene.Call("StartHometownMusic");
 		GetTree().Root.GetChild(0).Call("TransitionToScene", NextScenePath, GlobalVariables.PlayerGlobalPosition);
 	}
 	private void _on_focus_exited()

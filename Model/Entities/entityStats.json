@@ -2,11 +2,11 @@
     {
         "ID":0,
         "folderLocation":"",
-        "Atk":1,
-        "SpAtk":1,
-        "Def":1,
-        "SpDef":1,
-        "Speed":1,
+        "Atk":49,
+        "SpAtk":65,
+        "Def":49,
+        "SpDef":65,
+        "Speed":45,
         "MaxHP":150
     },
     {
@@ -22,12 +22,12 @@
     {
         "ID":2,
         "folderLocation":"",
-        "Atk":1,
-        "SpAtk":1,
-        "Def":1,
-        "SpDef":1,
-        "Speed":1,
-        "MaxHP":10
+        "Atk":48,
+        "SpAtk":50,
+        "Def":65,
+        "SpDef":64,
+        "Speed":43,
+        "MaxHP":100
     },
     {
         "ID":3,

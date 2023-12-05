@@ -42,7 +42,8 @@ public partial class BattleScene : Node2D
 		FightMenu = GetNode<Control>("MainFightMenu");
 		MessageBox = GetNode<Control>("MessageBoxContainer");
 		MessageBox.Visible = false;
-
+		
+		StartBattleMusic();
 		
 		//temporary for testing purposes, once we figure out player team change tmpPlayer to whatever player team is, and defaultEnemy
 		//will receive information about enemyID and be replaced in prod
@@ -317,7 +318,26 @@ public partial class BattleScene : Node2D
 
 	public void ExitBattleScene()
 	{
+		StartHometownMusic();
 		GetTree().Root.GetChild(0).Call("TransitionToScene", "res://overworld.tscn", GlobalVariables.PlayerGlobalPosition);
+	}	
+	
+	public void StartBattleMusic()
+	{
+		var HometownMusicPlayer = (AudioStreamPlayer2D)GetTree().Root.GetChild(0).FindChild("HometownMusicPlayer");
+		HometownMusicPlayer.Stop();
+
+		var BattleMusicPlayer = (AudioStreamPlayer2D)GetTree().Root.GetChild(0).FindChild("BattleMusicPlayer");
+		BattleMusicPlayer.Play();
+	}
+	
+	public void StartHometownMusic()
+	{
+		var BattleMusicPlayer = (AudioStreamPlayer2D)GetTree().Root.GetChild(0).FindChild("BattleMusicPlayer");
+		BattleMusicPlayer.Stop();
+
+		var HometownMusicPlayer = (AudioStreamPlayer2D)GetTree().Root.GetChild(0).FindChild("HometownMusicPlayer");
+		HometownMusicPlayer.Play();
 	}
 }
 

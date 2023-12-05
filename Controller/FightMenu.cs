@@ -35,7 +35,6 @@ public partial class FightMenu : Control
 		SwitchButton = BoxContainer.GetChild(1).GetChild<Button>(0);
 		RunButton = BoxContainer.GetChild(1).GetChild<Button>(1);
 		FightButton.GrabFocus();
-		GD.Print(GetParent());
 		
 		
 	}
@@ -63,13 +62,12 @@ public partial class FightMenu : Control
 	}
 	private void _on_focus_exited()
 	{
-		GD.Print("heyo");
 		BoxContainer.Hide();	
 	}
 	
 	private void _on_focus_entered()
 	{
-		BoxContainer.Show();
+
 	}
 
 

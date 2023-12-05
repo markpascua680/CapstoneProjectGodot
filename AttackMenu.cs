@@ -1,6 +1,9 @@
 using Godot;
+using Godot.Collections;
 using System;
+using System.Collections.Generic;
 
+namespace AttackMenu;
 public partial class AttackMenu : Control
 {
 
@@ -10,6 +13,8 @@ public partial class AttackMenu : Control
 	private Button Move3Button;
 	private Button Move4Button;
 	private Button BackButton;
+	private Variant ButtonGrabbed;
+
 	public override void _Ready()
 	{
 
@@ -33,43 +38,54 @@ public partial class AttackMenu : Control
 	}
 	private void _on_focus_entered()
 	{
-
+		BoxContainer.Hide();
 	}
 
 
 	private void _on_focus_exited()
 	{
-		// Replace with function body.
+
 	}
 
 
 
 	private void _on_move_3_pressed()
 	{
+		ButtonGrabbed = 2;
+		this.GrabFocus();
 		// Replace with function body.
 	}
 
 
 	private void _on_move_1_pressed()
 	{
+		ButtonGrabbed = 0;
+		this.GrabFocus();
 		// Replace with function body.
 	}
 
 
 	private void _on_move_2_pressed()
 	{
+		ButtonGrabbed = 1;
+		this.GrabFocus();
 		// Replace with function body.
 	}
 
 
 	private void _on_move_4_pressed()
 	{
+		ButtonGrabbed = 3;
+		this.GrabFocus();
 		// Replace with function body.
 	}
 
 
 	private void _on_back_pressed()
 	{
+
+		ButtonGrabbed = 5;
+		this.GrabFocus();
 		// Replace with function body.
 	}
 }

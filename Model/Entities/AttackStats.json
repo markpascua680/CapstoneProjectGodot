@@ -1,0 +1,38 @@
+[
+    {
+        "ID":0,
+        "ElementalType":"None",
+        "AttackCategory":"PHYSICAL",
+        "Name":"Tackle",
+        "Accuracy":100,
+        "MoveSlots":40,
+        "Power": 30
+    },
+    {
+        "ID":1,
+        "ElementalType":"None",
+        "AttackCategory":"SPECIAL",
+        "Name":"Migraine",
+        "Accuracy":100,
+        "MoveSlots":40,
+        "Power": 30
+    },
+    {
+        "ID":2,
+        "ElementalType":"None",
+        "AttackCategory":"PHYSICAL",
+        "Name":"AHHHH",
+        "Accuracy":100,
+        "MoveSlots":40,
+        "Power": 30
+    },
+    {
+        "ID":0,
+        "ElementalType":"None",
+        "AttackCategory":"PHYSICAL",
+        "Name":"ScreenShot",
+        "Accuracy":100,
+        "MoveSlots":40,
+        "Power": 30
+    }
+]

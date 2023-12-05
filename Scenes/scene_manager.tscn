@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6jj70b5yq165"]
+[gd_scene load_steps=9 format=3 uid="uid://b6jj70b5yq165"]
 
 [ext_resource type="Script" path="res://Controller/SceneManager.cs" id="1_ll657"]
 [ext_resource type="PackedScene" uid="uid://bb3fu25u44i7p" path="res://overworld.tscn" id="2_2y7dj"]
-[ext_resource type="PackedScene" uid="uid://crakeo7chb0py" path="res://Scenes/PauseMenu.tscn" id="3_h8nqo"]
+[ext_resource type="PackedScene" uid="uid://crakeo7chb0py" uid="uid://crakeo7chb0py" path="res://Scenes/PauseMenu.tscn" id="3_h8nqo"]
+[ext_resource type="AudioStream" uid="uid://bb70dhd224nrb" path="res://Audio/Hometown.wav" id="4_pyl4b"]
 
 [sub_resource type="Animation" id="Animation_y40e8"]
 resource_name = "FadeToBlack"
@@ -102,3 +103,8 @@ libraries = {
 offset = Vector2(830, 0)
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 830, 0)
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_pyl4b")
+volume_db = -30.0
+autoplay = true

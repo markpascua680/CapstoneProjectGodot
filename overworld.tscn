@@ -630,4 +630,4 @@ position = Vector2(64, 113)
 metadata/npcid = "littleDude"
 
 [node name="NPCs2" parent="Node2D" instance=ExtResource("12_alwnd")]
-metadata/npcid = "littleDude"
+metadata/npcid = "enemyThree"

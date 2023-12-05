@@ -14,9 +14,10 @@ public partial class NPC1LittleDude : CharacterBody2D
 
 		if (EnemyRay.IsColliding() && EnemyRay.GetCollider().GetMetaList()[0] == "player"){
 			
-			var SpawnPositionAfterTransition = GlobalVariables.PlayerGlobalPosition;
 			GlobalVariables.CurrEnemy = GetParent().GetMeta("npcid").ToString();
-			GetTree().Root.GetChild(0).Call("TransitionToScene", "res://BattleScene.tscn", SpawnPositionAfterTransition);
+			var positionOffset = new Vector2(5, 5);
+			var spawnPositionAfterTransition = GlobalPosition - positionOffset;
+			GetTree().Root.GetChild(0).Call("TransitionToScene", "res://BattleScene.tscn", spawnPositionAfterTransition);
 			SetPhysicsProcess(false);
 		}
 	}

@@ -1,4 +1,5 @@
 using Godot;
+using Model.GlobalVariables;
 using System;
 using System.ComponentModel;
 
@@ -35,8 +36,6 @@ public partial class FightMenu : Control
 		SwitchButton = BoxContainer.GetChild(1).GetChild<Button>(0);
 		RunButton = BoxContainer.GetChild(1).GetChild<Button>(1);
 		FightButton.GrabFocus();
-		
-		
 	}
 	private void OnItemPressed()
 	{
@@ -58,7 +57,8 @@ public partial class FightMenu : Control
 	
 	private void OnRunPressed()
 	{
-		// Replace with function body.
+		var NextScenePath = "res://overworld.tscn";
+		GetTree().Root.GetChild(0).Call("TransitionToScene", NextScenePath, GlobalVariables.PlayerGlobalPosition);
 	}
 	private void _on_focus_exited()
 	{

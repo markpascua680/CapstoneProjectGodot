@@ -27,3 +27,4 @@ shape = SubResource("RectangleShape2D_i5h3x")
 top_level = false
 position = Vector2(10, -2)
 NextScenePath = "res://Scenes/player_home_floor_1.tscn"
+SpawnPositionAfterTransition = Vector2(88, 0)

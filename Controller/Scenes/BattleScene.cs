@@ -150,14 +150,13 @@ public partial class BattleScene : Node2D
 		int DamageToPlayer = 0;
 		int DamageToTrainer = 0;
 
-		
 		switch (MasterMoveList[TrainerMoveID].AttackCategoryList)
 		{
 			case AttackCategory.PHYSICAL:
-				DamageToPlayer = DamageMovePhysical(MasterMoveList[CurrentMoveID].AttackCategoryList,true,CurrentMoveID);
+				DamageToPlayer = DamageMovePhysical(MasterMoveList[TrainerMoveID].AttackCategoryList,true,TrainerMoveID);
 			break;
 			case AttackCategory.SPECIAL:
-				DamageToPlayer = DamageMoveSpecial(MasterMoveList[CurrentMoveID].AttackCategoryList,true,CurrentMoveID);
+				DamageToPlayer = DamageMoveSpecial(MasterMoveList[TrainerMoveID].AttackCategoryList,true,TrainerMoveID);
 			break;
 			//IMPLEMENT OTHER TYPES LATER
 		}
@@ -207,12 +206,23 @@ public partial class BattleScene : Node2D
 		}
 		else
 		{
-			PlayerEntityTeam[PlayerCurrentEntity].CurrentHP -= DamageToPlayer;
-			GetNode<Node2D>("Player").GetNode<RichTextLabel>("playerEntityText").Text = (PlayerEntityTeam[PlayerCurrentEntity].CurrentHP / PlayerEntityTeam[PlayerCurrentEntity].MaxHP).ToString();
+			// Set HP to 0 if damage dealt > current HP to prevent negative numbers in health bar
+			if (DamageToPlayer > PlayerEntityTeam[PlayerCurrentEntity].CurrentHP)
+				PlayerEntityTeam[PlayerCurrentEntity].CurrentHP = 0;
+			else
+				PlayerEntityTeam[PlayerCurrentEntity].CurrentHP -= DamageToPlayer;
+
+			GetNode<Node2D>("Player").GetNode<RichTextLabel>("playerEntityText").Text = PlayerEntityTeam[PlayerCurrentEntity].CurrentHP + "/" + PlayerEntityTeam[PlayerCurrentEntity].MaxHP.ToString();
+
 			if (PlayerEntityTeam[PlayerCurrentEntity].CurrentHP > 0)
 			{
-				TrainerEntityTeam[TrainerCurrentEntity].CurrentHP -= DamageToTrainer;
-				GetNode<Node2D>("Enemy").GetNode<RichTextLabel>("enemyEntityText").Text = (TrainerEntityTeam[TrainerCurrentEntity].CurrentHP/TrainerEntityTeam[TrainerCurrentEntity].MaxHP).ToString();
+				// Set HP to 0 if damage dealt > current HP to prevent negative numbers in health bar
+				if (DamageToTrainer > TrainerEntityTeam[TrainerCurrentEntity].CurrentHP)
+					TrainerEntityTeam[TrainerCurrentEntity].CurrentHP = 0;
+				else
+					TrainerEntityTeam[TrainerCurrentEntity].CurrentHP -= DamageToTrainer;
+					
+				GetNode<Node2D>("Enemy").GetNode<RichTextLabel>("enemyEntityText").Text = TrainerEntityTeam[TrainerCurrentEntity].CurrentHP + "/" + TrainerEntityTeam[TrainerCurrentEntity].MaxHP.ToString();
 
 				if (TrainerEntityTeam[TrainerCurrentEntity].CurrentHP <= 0)
 				{
@@ -249,7 +259,7 @@ public partial class BattleScene : Node2D
 	{
 		double DMGDealt = 0;
 		int ATKStat = 0;
-		int Power = MasterMoveList[CurrentMoveID].Power;;
+		int Power = MasterMoveList[CurrentMoveID].Power;
 		int Accuracy = 0; //Implement later
 		int DefStat = 0;
 		int DamageMultiplier = 1;

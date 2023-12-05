@@ -12,12 +12,12 @@
     {
         "ID":1,
         "folderLocation":"",
-        "Atk":1,
-        "SpAtk":1,
-        "Def":1,
-        "SpDef":1,
-        "Speed":1,
-        "MaxHP":1000000
+        "Atk":100,
+        "SpAtk":100,
+        "Def":100,
+        "SpDef":100,
+        "Speed":100,
+        "MaxHP":1000
     },
     {
         "ID":2,

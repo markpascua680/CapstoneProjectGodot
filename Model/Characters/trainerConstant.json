@@ -47,7 +47,7 @@
 		"entityTeam":
 			[
 				{
-					"spriteID":0,
+					"spriteID":1,
 					"lvl":5,
 					"moveSet":[0,1,2,3],
 					"equipment":[0]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cfjwa7by2bida"]
+[gd_scene load_steps=33 format=3 uid="uid://cfjwa7by2bida"]
 
 [ext_resource type="Script" path="res://Controller/Scenes/BattleScene.cs" id="1_4sqj3"]
 [ext_resource type="Texture2D" uid="uid://b2irksvrd2edu" path="res://View/Ground/TexturedGrass.png" id="2_exq5g"]
@@ -155,6 +155,10 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o04st"]
+atlas = ExtResource("3_y4lov")
+region = Rect2(0, 0, 16, 16)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_4sqj3")
@@ -350,6 +354,37 @@ offset_bottom = 144.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(1.858, 0.938)
+
+[node name="MessageBoxContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MessageBoxContainer"]
+self_modulate = Color(0.239216, 0.239216, 0.239216, 1)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 92.0
+offset_right = 216.0
+offset_bottom = 126.0
+texture = SubResource("AtlasTexture_o04st")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MessageBoxText" type="RichTextLabel" parent="MessageBoxContainer/NinePatchRect"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 386.0
+offset_bottom = 62.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("6_1c01f")
+theme_override_font_sizes/normal_font_size = 32
+text = "Test"
+scroll_active = false
 
 [connection signal="focus_entered" from="AttackMenu" to="." method="_on_attack_menu_focus_entered"]
 [connection signal="focus_entered" from="MainFightMenu" to="MainFightMenu" method="_on_focus_entered"]

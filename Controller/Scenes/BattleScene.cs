@@ -163,11 +163,13 @@ public partial class BattleScene : Node2D
 				GetNode<Node2D>("Player").GetNode<RichTextLabel>("playerEntityText").Text = PlayerEntityTeam[PlayerCurrentEntity].CurrentHP.ToString() + "/" + PlayerEntityTeam[PlayerCurrentEntity].MaxHP.ToString();
 				if(PlayerEntityTeam[PlayerCurrentEntity].CurrentHP <= 0)
 				{
+					WinOrLose();
 					//DEATH_SWITCH
 				}
 			}
 			else
 			{
+				WinOrLose();
 				//DEATH_SWITCH
 			}
 		}
@@ -182,14 +184,21 @@ public partial class BattleScene : Node2D
 
 				if (TrainerEntityTeam[TrainerCurrentEntity].CurrentHP <= 0)
 				{
+					WinOrLose();
 					//DEATH_SWITCH
 				}
 			}
 			else
 			{
+				WinOrLose();
 				//DEATH_SWITCH
 			}
 		}
+	}
+
+	public void WinOrLose()
+	{
+		GetTree().Root.GetChild(0).Call("TransitionToScene", "res://overworld.tscn", GlobalVariables.PlayerGlobalPosition);
 	}
 	public int DamageMovePhysical(AttackCategory MoveAttackCategoryList,bool SelfID, int CurrentMoveID)
 	{

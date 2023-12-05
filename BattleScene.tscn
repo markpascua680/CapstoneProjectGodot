@@ -166,29 +166,24 @@ scale = Vector2(6, 1.3125)
 sprite_frames = SubResource("SpriteFrames_eh6x0")
 
 [node name="AttackMenu" parent="." instance=ExtResource("6_gbjmr")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 2.0
-offset_top = 82.0
-offset_right = 287.0
-offset_bottom = 134.0
-grow_horizontal = 1
-grow_vertical = 1
-scale = Vector2(1.25, 0.7)
+offset_left = 16.0
+offset_top = 92.0
+offset_right = 244.0
+offset_bottom = 144.0
+scale = Vector2(0.74, 0.49)
 size_flags_vertical = 4
 
 [node name="MainFightMenu" parent="." instance=ExtResource("5_ngqwh")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = -40.0
-offset_top = 96.0
-offset_right = 114.0
-offset_bottom = 128.0
+offset_left = 13.0
+offset_top = 92.0
+offset_right = 167.0
+offset_bottom = 124.0
 grow_horizontal = 1
 grow_vertical = 1
-scale = Vector2(2.015, 0.63)
+scale = Vector2(1.635, 0.5)
 
 [connection signal="focus_entered" from="AttackMenu" to="." method="_on_attack_menu_focus_entered"]
 [connection signal="focus_entered" from="MainFightMenu" to="MainFightMenu" method="_on_focus_entered"]

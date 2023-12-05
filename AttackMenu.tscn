@@ -3,39 +3,33 @@
 [ext_resource type="Script" path="res://AttackMenu.cs" id="1_sfnye"]
 
 [node name="Control" type="Control"]
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 3
-anchor_right = 0.158
-anchor_bottom = 0.103
-offset_right = -0.0160065
-offset_bottom = 0.255997
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 270.0
+offset_bottom = 70.0
 script = ExtResource("1_sfnye")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.997
-anchor_bottom = 1.188
-offset_right = -967.544
-offset_bottom = -700.824
+layout_mode = 0
+offset_right = 267.0
+offset_bottom = 69.0
 
 [node name="BoxContainer" type="BoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.8
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Move1" type="Button" parent="MarginContainer/BoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_neighbor_right = NodePath("../../VBoxContainer2/Move2")
 focus_neighbor_bottom = NodePath("../Move3")
 text = "Move 1"
-alignment = 0
+text_overrun_behavior = 1
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/BoxContainer/VBoxContainer/Move1"]
 visible = false
@@ -49,9 +43,11 @@ color = Color(0, 1, 1, 1)
 
 [node name="Move3" type="Button" parent="MarginContainer/BoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_neighbor_top = NodePath("../Move1")
 focus_neighbor_right = NodePath("../../VBoxContainer2/Move4")
 text = "Move 3"
+text_overrun_behavior = 1
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/BoxContainer/VBoxContainer/Move3"]
 visible = false
@@ -65,14 +61,16 @@ color = Color(0.0901961, 1, 1, 1)
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/BoxContainer"]
 layout_mode = 2
-size_flags_stretch_ratio = 4.63
+size_flags_horizontal = 3
 
 [node name="Move2" type="Button" parent="MarginContainer/BoxContainer/VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../VBoxContainer/Move1")
 focus_neighbor_right = NodePath("../../Back")
 focus_neighbor_bottom = NodePath("../Move4")
 text = "Move 2"
+text_overrun_behavior = 1
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/BoxContainer/VBoxContainer2/Move2"]
 visible = false
@@ -86,10 +84,12 @@ color = Color(0.0901961, 1, 1, 1)
 
 [node name="Move4" type="Button" parent="MarginContainer/BoxContainer/VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../VBoxContainer/Move3")
 focus_neighbor_top = NodePath("../Move2")
 focus_neighbor_right = NodePath("../../Back")
 text = "Move 4"
+text_overrun_behavior = 1
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/BoxContainer/VBoxContainer2/Move4"]
 visible = false

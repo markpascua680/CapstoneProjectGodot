@@ -33,6 +33,7 @@ public class currStatsBuilder
         blankCurrStats.Speed = (int)(stats.Speed + stats.Speed * (enemyEntity.lvl-1) * lvlMod);
         blankCurrStats.Equipment = enemyEntity.equipment;
         blankCurrStats.MoveSet = enemyEntity.moveSet;
+        blankCurrStats.Name = stats.Name;
         blankCurrStats.EXP = 0;
         return blankCurrStats;
     }
@@ -43,6 +44,7 @@ public class currStats
 {
     public List<int> Equipment {set;get;}
     public List<int> MoveSet {set; get;}
+    public string Name {set; get;}
     public int CurrentHP {set;get;}
     public int Attack { get; set; }
     public int SpecialAttack { get; set; }

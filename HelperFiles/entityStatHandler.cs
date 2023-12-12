@@ -14,7 +14,9 @@ public class statConstant
 }
 public class stats
 {
+    public string Name {set;get;}
     public string folderLocation {set; get;}
+
     public int Atk {set; get;}
     public int SpAtk {set; get;}
     public int Def {set; get;}

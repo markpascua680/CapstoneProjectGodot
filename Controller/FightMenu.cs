@@ -43,11 +43,12 @@ public partial class FightMenu : Control
 	}
 	private void OnFightPressed()
 	{
-		Control focusTest;
-		focusTest = GetParent().GetNode<Control>("AttackMenu");
-		focusTest.FocusMode = FocusModeEnum.All;
+		Control AttackMenu;
+		AttackMenu = GetParent().GetNode<Control>("AttackMenu");
+		AttackMenu.FocusMode = FocusModeEnum.All;
 		//Move1
-		focusTest.GetChild(0).GetChild(0).GetChild(0).GetChild<Button>(0).GrabFocus();
+		AttackMenu.GetChild(0).GetChild(0).GetChild(0).GetChild<Button>(0).GrabFocus();
+		AttackMenu.Show();
 		BoxContainer.Hide();	
 	}
 	private void OnSwitchPressed()

@@ -1,6 +1,7 @@
 [
     {
         "ID":0,
+        "Name":"Cat",
         "folderLocation":"",
         "Atk":49,
         "SpAtk":65,
@@ -11,6 +12,7 @@
     },
     {
         "ID":1,
+        "Name":"Dog",
         "folderLocation":"",
         "Atk":100,
         "SpAtk":100,
@@ -21,6 +23,7 @@
     },
     {
         "ID":2,
+        "Name":"Parrot",
         "folderLocation":"",
         "Atk":48,
         "SpAtk":50,
@@ -31,6 +34,7 @@
     },
     {
         "ID":3,
+        "Name":"Fish",
         "folderLocation":"",
         "Atk":1,
         "SpAtk":1,

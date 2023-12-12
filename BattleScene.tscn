@@ -386,6 +386,10 @@ theme_override_font_sizes/normal_font_size = 32
 text = "Test"
 scroll_active = false
 
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+
 [connection signal="focus_entered" from="AttackMenu" to="." method="_on_attack_menu_focus_entered"]
 [connection signal="focus_entered" from="MainFightMenu" to="MainFightMenu" method="_on_focus_entered"]
 [connection signal="focus_exited" from="MainFightMenu" to="MainFightMenu" method="_on_focus_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

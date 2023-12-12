@@ -6,6 +6,9 @@ using HelperFiles.MoveHandler;
 using Model.GlobalVariables;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Reflection;
+using System.Collections;
+using System;
 
 //using Model.Entities;
 
@@ -30,6 +33,7 @@ public partial class BattleScene : Node2D
 	public bool IsBattleOver = false;
 
 	public bool CanExitBattleScene = false;
+	public bool IsRoundOver = false;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -144,7 +148,7 @@ public partial class BattleScene : Node2D
 		return MoveID;
 	}
 
-	public void UseMove(int ButtonGrabbed)
+	public async void UseMove(int ButtonGrabbed)
 	{
 		int TrainerMoveID = EnemyAI();
 		int CurrentMoveID = CurrentMoveList[ButtonGrabbed];
@@ -172,7 +176,7 @@ public partial class BattleScene : Node2D
 			break;
 			//IMPLEMENT OTHER TYPES LATER
 		}
-
+		//Player is faster
 		if (PlayerEntityTeam[PlayerCurrentEntity].Speed >= TrainerEntityTeam[TrainerCurrentEntity].Speed)
 		{
 			// Set HP to 0 if damage dealt > current HP to prevent negative numbers in health bar
@@ -180,19 +184,19 @@ public partial class BattleScene : Node2D
 				TrainerEntityTeam[TrainerCurrentEntity].CurrentHP = 0;
 			else
 				TrainerEntityTeam[TrainerCurrentEntity].CurrentHP -= DamageToTrainer;
-
-			GetNode<Node2D>("Enemy").GetNode<RichTextLabel>("enemyEntityText").Text = TrainerEntityTeam[TrainerCurrentEntity].CurrentHP.ToString() + "/" + TrainerEntityTeam[TrainerCurrentEntity].MaxHP.ToString();
-
+				await OnDamageTaken(DamageToTrainer, 1);
+			//Enemy Survives
 			if (TrainerEntityTeam[TrainerCurrentEntity].CurrentHP > 0)
 			{
 				// Set HP to 0 if damage dealt > current HP to prevent negative numbers in health bar
 				if (DamageToPlayer > PlayerEntityTeam[PlayerCurrentEntity].CurrentHP)
+				{
 					PlayerEntityTeam[PlayerCurrentEntity].CurrentHP = 0;
+					IsRoundOver = true;
+				}
 				else
 					PlayerEntityTeam[PlayerCurrentEntity].CurrentHP -= DamageToPlayer;
-
-				GetNode<Node2D>("Player").GetNode<RichTextLabel>("playerEntityText").Text = PlayerEntityTeam[PlayerCurrentEntity].CurrentHP.ToString() + "/" + PlayerEntityTeam[PlayerCurrentEntity].MaxHP.ToString();
-
+					await OnDamageTaken(DamageToPlayer, 0);
 				if(PlayerEntityTeam[PlayerCurrentEntity].CurrentHP <= 0)
 				{
 					WinOrLose();
@@ -212,19 +216,19 @@ public partial class BattleScene : Node2D
 				PlayerEntityTeam[PlayerCurrentEntity].CurrentHP = 0;
 			else
 				PlayerEntityTeam[PlayerCurrentEntity].CurrentHP -= DamageToPlayer;
-
-			GetNode<Node2D>("Player").GetNode<RichTextLabel>("playerEntityText").Text = PlayerEntityTeam[PlayerCurrentEntity].CurrentHP + "/" + PlayerEntityTeam[PlayerCurrentEntity].MaxHP.ToString();
+				await OnDamageTaken(DamageToPlayer, 0);
 
 			if (PlayerEntityTeam[PlayerCurrentEntity].CurrentHP > 0)
 			{
 				// Set HP to 0 if damage dealt > current HP to prevent negative numbers in health bar
 				if (DamageToTrainer > TrainerEntityTeam[TrainerCurrentEntity].CurrentHP)
+				{
 					TrainerEntityTeam[TrainerCurrentEntity].CurrentHP = 0;
+					IsRoundOver = true;
+				}
 				else
 					TrainerEntityTeam[TrainerCurrentEntity].CurrentHP -= DamageToTrainer;
-					
-				GetNode<Node2D>("Enemy").GetNode<RichTextLabel>("enemyEntityText").Text = TrainerEntityTeam[TrainerCurrentEntity].CurrentHP + "/" + TrainerEntityTeam[TrainerCurrentEntity].MaxHP.ToString();
-
+					await OnDamageTaken(DamageToPlayer, 0);
 				if (TrainerEntityTeam[TrainerCurrentEntity].CurrentHP <= 0)
 				{
 					WinOrLose();
@@ -237,6 +241,8 @@ public partial class BattleScene : Node2D
 				//DEATH_SWITCH
 			}
 		}
+		IsRoundOver = false;
+		GetNode<Timer>("Timer").Stop();
 	}
 
 	public void WinOrLose()
@@ -256,6 +262,54 @@ public partial class BattleScene : Node2D
 		MessageBox.Visible = true;
 		FightMenu.Visible = false;
 	}
+
+	public async void ShowText(string MessagePopUp)
+	{
+		MessageBox.Visible = true;
+		FightMenu.Visible = false;
+		AttackMenu.Visible = false;
+		MessageBox.GetChild(0).GetNode<RichTextLabel>("MessageBoxText").Text = MessagePopUp;
+	}
+
+	//0 
+	public async Task OnDamageTaken(int DMGDealt,int Target)
+	{
+		double TimePerMessage = 0.5;
+		if (Target == 0)
+		{
+			ShowText(PlayerEntityTeam[PlayerCurrentEntity].Name + " was dealt " + DMGDealt + " Damage!");
+			GetNode<Node2D>("Player").GetNode<RichTextLabel>("playerEntityText").Text = PlayerEntityTeam[PlayerCurrentEntity].CurrentHP.ToString() + "/" + PlayerEntityTeam[PlayerCurrentEntity].MaxHP.ToString();
+			await StartTimer(TimePerMessage);
+		}
+
+		if (Target == 1){
+			ShowText(TrainerEntityTeam[TrainerCurrentEntity].Name + " was dealt " + DMGDealt + " Damage!");
+			GetNode<Node2D>("Enemy").GetNode<RichTextLabel>("enemyEntityText").Text = TrainerEntityTeam[TrainerCurrentEntity].CurrentHP.ToString() + "/" + TrainerEntityTeam[TrainerCurrentEntity].MaxHP.ToString();
+			await StartTimer(TimePerMessage);
+		}
+		
+	}
+
+	private void _on_timer_timeout()
+	{
+		if (IsRoundOver)
+		{
+			MessageBox.Visible = false;
+			AttackMenu.Visible = false;
+			FightMenu.Visible = true;
+			FightMenu.GetChild(0).GetChild(0).GetChild(0).GetChild<Button>(0).GrabFocus();
+		}
+		else {
+			IsRoundOver = true;
+		}
+	}
+
+	private async Task StartTimer (double x)
+	{
+		GetNode<Timer>("Timer").Start(x);
+		await ToSignal(GetNode<Timer>("Timer"),"timeout");
+	}
+
 	public int DamageMovePhysical(AttackCategory MoveAttackCategoryList,bool SelfID, int CurrentMoveID)
 	{
 		double DMGDealt = 0;
@@ -340,4 +394,6 @@ public partial class BattleScene : Node2D
 		HometownMusicPlayer.Play();
 	}
 }
+
+
 
